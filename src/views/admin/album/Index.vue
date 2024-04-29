@@ -2,6 +2,9 @@
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
+      <RouterLink to="/admin">
+        <ArrowLeftIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+      </RouterLink>
         <h1 class="text-base font-semibold leading-6 text-gray-900">Albums</h1>
         <p class="mt-2 text-sm text-gray-700">A list of all the albums in this system.</p>
       </div>
@@ -105,6 +108,9 @@
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router';
+import { ArrowLeftIcon } from '@heroicons/vue/20/solid';
+
 const albums = [
   {
     id: 1,
