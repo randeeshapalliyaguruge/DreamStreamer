@@ -54,8 +54,7 @@
             <tbody class="divide-y divide-gray-200">
               <tr v-for="album in albums" :key="album.id">
                 <td
-                  class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
-                >
+                  class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                   {{ album.id }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
