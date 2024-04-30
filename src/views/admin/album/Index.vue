@@ -3,18 +3,17 @@
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
       <RouterLink to="/admin">
-        <ArrowLeftIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+        <ArrowLeftIcon class="h-8 w-8 text-gray-600" aria-hidden="true" />
       </RouterLink>
         <h1 class="text-base font-semibold leading-6 text-gray-900">Albums</h1>
         <p class="mt-2 text-sm text-gray-700">A list of all the albums in this system.</p>
       </div>
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-        <button
+        <RouterLink to="/admin/album/create"
           type="button"
-          class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
+          class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           Add Album
-        </button>
+        </RouterLink>
       </div>
     </div>
     <div class="mt-8 flow-root">
@@ -79,20 +78,17 @@
                   <span v-else>Inactive</span>
                 </td>
                 <td
-                  class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
-                >
+                  class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                   <RouterLink
                     :to="`/admin/album/${album.id}`"
-                    class="text-indigo-600 hover:text-indigo-900"
-                  >
+                    class="text-indigo-600 hover:text-indigo-900">
                     View
                     <span class="sr-only">, {{ album.name }}</span>
                   </RouterLink>
                   |
                   <RouterLink
                     :to="`/admin/album/${album.id}/edit`"
-                    class="text-indigo-600 hover:text-indigo-900"
-                  >
+                    class="text-indigo-600 hover:text-indigo-900">
                     Edit
                     <span class="sr-only">, {{ album.name }}</span>
                   </RouterLink>

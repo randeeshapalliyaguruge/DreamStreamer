@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-10" @close="open = false">
+    <Dialog as="div" class="relative z-10" @close="open = true">
       <TransitionChild
         as="template"
         enter="ease-out duration-300"
@@ -15,8 +15,7 @@
 
       <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div
-          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
-        >
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <TransitionChild
             as="template"
             enter="ease-out duration-300"
@@ -24,13 +23,14 @@
             enter-to="opacity-100 translate-y-0 sm:scale-100"
             leave="ease-in duration-200"
             leave-from="opacity-100 translate-y-0 sm:scale-100"
-            leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          >
+            leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <DialogPanel
-              class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
-            >
+              class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
               <form v-on:submit.prevent="saveAlbum">
                 <div>
+                  <RouterLink to="/admin/album">
+                    <XMarkIcon class="h-6 w-6 text-gray-400 absolute top-4 right-4 cursor-pointer hover:bg-red-500 hover:text-white hover:rounded-full" />
+                  </RouterLink>
                   <div class="mt-3 sm:mt-5">
                     <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
                       {{ album.name }}
@@ -40,21 +40,18 @@
                         <div class="sm:col-span-8">
                           <label
                             for="name"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Name
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
                                 name="name"
                                 id="name"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.name"
-                              />
+                                v-model="album.name"/>
                             </div>
                           </div>
                         </div>
@@ -62,21 +59,18 @@
                         <div class="sm:col-span-4">
                           <label
                             for="number_of_tracks"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Number of Tracks
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
                                 name="number_of_tracks"
                                 id="number_of_tracks"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.number_of_tracks"
-                              />
+                                v-model="album.number_of_tracks"/>
                             </div>
                           </div>
                         </div>
@@ -84,21 +78,18 @@
                         <div class="sm:col-span-4">
                           <label
                             for="year"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Year
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
                                 name="year"
                                 id="year"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.year"
-                              />
+                                v-model="album.year"/>
                             </div>
                           </div>
                         </div>
@@ -106,20 +97,17 @@
                         <div class="sm:col-span-8">
                           <label
                             for="album_art"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Album Art
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="file"
                                 name="album_art"
                                 id="album_art"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                              />
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
                             </div>
                           </div>
                         </div>
@@ -127,20 +115,17 @@
                         <div class="sm:col-span-4">
                           <label
                             for="artist"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Artist
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <select
                                 v-model="album.artist.id"
                                 name="artist"
                                 id="artist"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                              >
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
                                 <option value="1">Costa</option>
                                 <option value="2">K Mac</option>
                                 <option value="3">Ravi Jay</option>
@@ -152,20 +137,17 @@
                         <div class="sm:col-span-4">
                           <label
                             for="studio"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Studio
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
                                 name="studio"
                                 id="studio"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                              />
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
                             </div>
                           </div>
                         </div>
@@ -173,21 +155,18 @@
                         <div class="sm:col-span-4">
                           <label
                             for="genre"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Genre
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
                                 name="genre"
                                 id="genre"
                                 v-model="album.genre"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                              />
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
                             </div>
                           </div>
                         </div>
@@ -213,14 +192,12 @@
                     type="button"
                     class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
                     to="/admin/album"
-                    ref="cancelButtonRef"
-                  >
+                    ref="cancelButtonRef">
                     Back
                   </RouterLink>
                   <button
                     type="submit"
-                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
-                  >
+                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2">
                     Save
                   </button>
                 </div>
@@ -236,6 +213,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { XMarkIcon } from '@heroicons/vue/20/solid';
 import { useRouter } from 'vue-router'
 
 const open = ref(true)
