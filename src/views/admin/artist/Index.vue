@@ -3,8 +3,8 @@
     <div>
       <AdminDashboard />
     </div>
-    <div class="flex-auto px-4">
-      <div class="sm:flex sm:items-center px-2">
+    <div class="flex-auto px-4 sm:px-6 lg:px-8">
+      <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
         <RouterLink to="/admin">
           <ArrowLeftIcon class="h-8 w-8 text-gray-600" aria-hidden="true" />
@@ -95,6 +95,7 @@
 
 <script setup>
 import AdminDashboard from '../AdminDashboard.vue';
+import { RouterLink } from 'vue-router';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { EllipsisVerticalIcon, ArrowLeftIcon } from '@heroicons/vue/20/solid'
 
