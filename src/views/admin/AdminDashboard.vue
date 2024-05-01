@@ -45,11 +45,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronRightIcon } from '@heroicons/vue/20/solid'
 import {
   ChartPieIcon,
-  DocumentDuplicateIcon,
   FolderIcon,
-  UserIcon,
   UsersIcon,
-  PlayIcon,
+  MusicalNoteIcon,
+  PaintBrushIcon,
 } from '@heroicons/vue/24/outline'
 
 const navigation = [
@@ -64,8 +63,8 @@ const navigation = [
   //     { name: 'Customer Success', href: '#' },
   //   ],
   // },
-  { name: 'Artist', href: '/admin/artist', icon: UserIcon, current: false },
-  { name: 'Tracks', href: '/admin/track', icon: PlayIcon, current: false },
+  { name: 'Artist', href: '/admin/artist', icon: PaintBrushIcon, current: false },
+  { name: 'Tracks', href: '/admin/track', icon: MusicalNoteIcon, current: false },
   { name: 'Genre ', href: '/admin/genre', icon: ChartPieIcon, current: false },
   { name: 'Users', href: '/admin/users', icon: UsersIcon, current: false },
 ]
