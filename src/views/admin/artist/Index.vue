@@ -56,11 +56,12 @@
                 class="inline-flex items-center px-3 py-1.5 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
                 View
               </RouterLink>
-              <button
+              <RouterLink
+                :to="`/admin/artist/${artist.id}/edit`"
                 type="button"
                 class="inline-flex items-center px-3 py-1.5 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
                 Edit
-              </button>
+              </RouterLink>
             </div>
             
             <Menu as="div" class="relative flex-none">
