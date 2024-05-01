@@ -49,6 +49,7 @@ import {
   FolderIcon,
   UserIcon,
   UsersIcon,
+  PlayIcon,
 } from '@heroicons/vue/24/outline'
 
 const navigation = [
@@ -64,7 +65,7 @@ const navigation = [
   //   ],
   // },
   { name: 'Artist', href: '/admin/artist', icon: UserIcon, current: false },
-  { name: 'Tracks', href: '/admin/track', icon: DocumentDuplicateIcon, current: false },
+  { name: 'Tracks', href: '/admin/track', icon: PlayIcon, current: false },
   { name: 'Genre ', href: '/admin/genre', icon: ChartPieIcon, current: false },
   { name: 'Users', href: '/admin/users', icon: UsersIcon, current: false },
 ]
