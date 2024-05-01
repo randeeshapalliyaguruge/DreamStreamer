@@ -27,7 +27,7 @@
             <img class="h-12 w-12 flex-none rounded-full bg-gray-50" :src="artist.avatar" alt="{{ artist.avatar }}" />
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">
-                <a :href="artist.href" class="hover:underline">{{ artist.name }}</a>
+                <a :href="`/admin/artist/${artist.id}`"  class="hover:underline">{{ artist.name }}</a>
               </p>
               <p class="mt-1 flex text-xs leading-5 text-gray-500">
                 {{ artist.bio }}
@@ -141,7 +141,7 @@ const artists = [
       { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
     ],
     sort_order: 2,
-    status: true,
+    status: null,
   },
   {
     id: 3,
