@@ -50,11 +50,12 @@
               </div>
             </div>
             <div class="hidden sm:flex sm:flex-col sm:items-end">
-              <button
+              <RouterLink
+                    :to="`/admin/artist/${artist.id}`"
                 type="button"
                 class="inline-flex items-center px-3 py-1.5 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
                 View
-              </button>
+              </RouterLink>
               <button
                 type="button"
                 class="inline-flex items-center px-3 py-1.5 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
@@ -88,6 +89,7 @@
       </div>
     </div>
   </div>
+  <router-view />
 </template>
 
 <script setup>
@@ -101,53 +103,79 @@ const artists = [
     name: 'Leslie Alexander',
     bio: 'Senior Designer',
     avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs: [1,2,3,4,5],
-    albums: [1,2,3,4,5],
+    tracks: [
+      { id: 1, name: 'Track 1', duration: '3:45',},
+      { id: 2, name: 'Track 2', duration: '4:45',},
+      { id: 3, name: 'Track 3', duration: '5:45',},
+      { id: 4, name: 'Track 4', duration: '6:45',},
+      { id: 5, name: 'Track 5', duration: '7:45',},
+    ],
+    albums: [
+      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+      { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
+      { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
+      { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
+      { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
+    ],
+    sort_order: 1,
     status: true,
   },
   {
     id: 2,
-    name: 'Leslie White',
+    name: 'Michael Foster',
     bio: 'Senior Designer',
-    avatar: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs: [1,2,3,4,5],
-    albums: [1,2,3,4,5],
-    status: null,
+    avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    tracks: [
+      { id: 1, name: 'Track 1', duration: '3:45',},
+      { id: 2, name: 'Track 2', duration: '4:45',},
+      { id: 3, name: 'Track 3', duration: '5:45',},
+      { id: 4, name: 'Track 4', duration: '6:45',},
+      { id: 5, name: 'Track 5', duration: '7:45',},
+    ],
+    albums: [
+      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+      { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
+      { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
+      { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
+      { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
+    ],
+    sort_order: 2,
+    status: true,
   },
   {
     id: 3,
-    name: 'Leslie Black',
+    name: 'Dries Vincent',
     bio: 'Senior Designer',
-    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs: [1,2,3,4,5],
-    albums: [1,2,3,4,5],
+    avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    tracks: [
+      { id: 1, name: 'Track 1', duration: '3:45',},
+      { id: 2, name: 'Track 2', duration: '4:45',},
+      { id: 3, name: 'Track 3', duration: '5:45',},
+      { id: 4, name: 'Track 4', duration: '6:45',},
+      { id: 5, name: 'Track 5', duration: '7:45',},
+    ],
+    albums: [
+      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+    ],
+    sort_order: 3,
     status: true,
   },
   {
     id: 4,
-    name: 'Leslie Green',
+    name: 'Lindsay Walton',
     bio: 'Senior Designer',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs: [1,2,3,4,5],
-    albums: [1,2,3,4,5],
-    status: true,
-  },
-  {
-    id: 5,
-    name: 'Leslie Blue',
-    bio: 'Senior Designer',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs: [1,2,3,4,5],
-    albums: [1,2,3,4,5],
-    status: true,
-  },
-  {
-    id: 6,
-    name: 'Leslie Yellow',
-    bio: 'Senior Designer',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    songs:[1,2,3,4,5],
-    albums: [1,2,3,4,5],
+    avatar:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    tracks: [
+      { id: 1, name: 'Track 1', duration: '3:45',},
+      { id: 2, name: 'Track 2', duration: '4:45',},
+      { id: 3, name: 'Track 3', duration: '5:45',},
+      { id: 4, name: 'Track 4', duration: '6:45',},
+      { id: 5, name: 'Track 5', duration: '7:45',},
+    ],
+    albums: [
+      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+    ],
+    sort_order: 4,
     status: true,
   },
 ]
