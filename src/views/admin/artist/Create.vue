@@ -207,8 +207,8 @@ const artist = ref({
   name: '',
   bio: '',
   avatar: '',
-  tracks: [],
-  albums: [],
+  tracks: [], // relationship for tracks
+  albums: [], // relationship for albums
   sort_order: 0,
   status: null
 })
