@@ -20,7 +20,6 @@
                 </DisclosureButton>
                 <DisclosurePanel as="ul" class="mt-1 px-2">
                   <li v-for="subItem in item.children" :key="subItem.name">
-                    <!-- 44px -->
                     <DisclosureButton as="a" :href="subItem.href" :class="[subItem.current ? 'bg-gray-50' : 'hover:bg-gray-50', 'block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-700']">{{ subItem.name }}</DisclosureButton>
                   </li>
                 </DisclosurePanel>

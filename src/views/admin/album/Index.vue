@@ -77,8 +77,8 @@
                     {{ album.genre }}
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <span v-if="album.status">Active</span>
-                    <span v-else>Inactive</span>
+                    <span v-if="album.status" class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Active</span>
+                    <span v-else class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">Inactive</span>
                   </td>
                   <td
                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
@@ -143,7 +143,7 @@ const albums = [
     studio: 'COSTA Songs',
     genre: 'RAP',
     sort_order: 0,
-    status: true // Published etc.
+    status: false // Published etc.
   },
   {
     id: 3,
