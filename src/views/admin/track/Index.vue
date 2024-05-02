@@ -43,7 +43,7 @@
                   <th scope="col" class="px-8 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                     Albums
                   </th>
-                  <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
+                  <th scope="col" class="px-12 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                     Status
                   </th>
                   <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
@@ -64,7 +64,7 @@
                   </td>
                   <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
                   <div class="flex items-center">
-                    <div class="h-11 w-11 flex-shrink-0">
+                    <div class="h-11 w-11 ml-6 flex-shrink-0">
                       <img class="h-11 w-11 rounded-full" :src="track.avatar" alt="track image" />
                     </div>
                     <div class="ml-4">
@@ -87,7 +87,7 @@
                       <h4 v-for ="album in track.album" :key="album.id" class="font-medium text-gray-800">{{ album.name }},</h4>
                     </div>
                   </td>
-                  <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                  <td class="px-12 py-4 text-sm text-center font-medium whitespace-nowrap">
                     <div v-if="track.status"
                       class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 bg-emerald-100/60">
                       Active
