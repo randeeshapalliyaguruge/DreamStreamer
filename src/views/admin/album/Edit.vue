@@ -126,9 +126,7 @@
                                 name="artist"
                                 id="artist"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                                <option value="1">Costa</option>
-                                <option value="2">K Mac</option>
-                                <option value="3">Ravi Jay</option>
+                                <option v-for="artist in album.artist" :key="artist.id" :value="artist.id">{{ artist.name }}</option>
                               </select>
                             </div>
                           </div>
@@ -161,29 +159,43 @@
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <input
-                                type="text"
+                              <select
+                                v-model="album.genre.id"
                                 name="genre"
                                 id="genre"
-                                v-model="album.genre"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                                <option v-for="genre in album.genre" :key="genre.id" :value="genre.id">{{ genre.name }}</option>
+                              </select>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="text-sm text-gray-500">
+                      <!-- <div class="text-sm text-gray-500">
                         <ul>
-                          <li>number_of_tracks: {{ album.number_of_tracks }}</li>
-                          <li>year: {{ album.year }}</li>
-                          <li>album_art: {{ album.album_art }}</li>
-                          <li>artist: {{ album.artist.name }}</li>
-                          <li>studio: {{ album.studio }}</li>
-                          <li>genre: {{ album.genre }}</li>
-                          <li>sort_order: {{ album.sort_order }}</li>
-                          <li>status: {{ album.status }}</li>
+                          <li>Number_of_tracks: {{ album.number_of_tracks }}</li>
+                          <li>Year: {{ album.year }}</li>
+                          <li>Album_art: {{ album.album_art }}</li>
+                          <li>All the artists:
+                            <ul class="ml-5">
+                              <li v-for="artist in album.artist" :key="artist.id">
+                                <span>{{ artist.name }}</span>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>Studio: {{ album.studio }}</li>
+                          <li>Genre: 
+                            <ul class="ml-5">
+                              <li v-for="genre in album.genre" :key="genre.id">
+                                <span>{{ genre.name }}</span>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>Sort_order: {{ album.sort_order }}</li>
+                          <li>Status: {{ album.status }}</li>
                         </ul>
-                      </div>
+                      </div> -->
+                      
                     </div>
                   </div>
                 </div>
@@ -226,13 +238,17 @@ const album = ref({
   number_of_tracks: 8,
   year: 2020,
   album_art: 'IMAGE_URL',
-  artist: {
-    id: 1,
-    name: 'Costa',
-    avatar: 'IMAGE_URL'
-  },
+  artist: [
+    { id: 1, name: 'Costa', avatar: 'IMAGE_URL'},
+    { id: 2, name: 'K Mac', avatar: 'IMAGE_URL'},
+    { id: 3, name: 'Ravi Jay', avatar: 'IMAGE_URL'},
+  ],
   studio: 'COSTA Songs',
-  genre: 'RAP',
+  genre: [
+    { id: 1, name: 'Rock', image: 'IMAGE_URL'},
+    { id: 2, name: 'Pop', image: 'IMAGE_URL'},
+    { id: 3, name: 'Rap', image: 'IMAGE_URL'},
+  ],
   sort_order: 0,
   status: true // Published etc.
 })
