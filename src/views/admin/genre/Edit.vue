@@ -8,8 +8,7 @@
         enter-to="opacity-100"
         leave="ease-in duration-200"
         leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
+        leave-to="opacity-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
       </TransitionChild>
 
@@ -74,18 +73,6 @@
                             </div>
                           </div>
                         </div>
-                        
-                        <div class="sm:col-span-8">
-                          <label for="status" class="block text-sm font-medium leading-6 text-gray-900">
-                            Status
-                          </label>
-                          <div class="mt-2">
-                            <div>
-                              <input type="checkbox" name="status" id="status"
-                                v-model="genre.status"/>
-                            </div>
-                          </div>
-                        </div>
 
                         <div class="sm:col-span-3">
                           <label
@@ -102,6 +89,18 @@
                                 id="sort_order"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                 v-model="genre.sort_order"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                          <label for="status" class="block text-sm font-medium leading-6 text-gray-900">
+                            Status
+                          </label>
+                          <div class="mt-2">
+                            <div>
+                              <input type="checkbox" name="status" id="status"
+                                v-model="genre.status"/>
                             </div>
                           </div>
                         </div>
@@ -126,16 +125,16 @@
 
                       </div>
 
-                      <div class="text-sm text-gray-500">
+                      <!-- <div class="text-sm text-gray-500">
                         <ul>
                           <li>Name: {{ genre.name }}</li>
                           <li>Description: {{ genre.description }}</li>
-                          <li>status: {{ genre.status }}</li>
                           <li>Sort order: {{ genre.sort_order }}</li>
+                          <li>status: {{ genre.status }}</li>
                           <li>Image: {{ genre.image }}</li>
-                          
                         </ul>
-                      </div>
+                      </div> -->
+
                     </div>
                   </div>
                 </div>
