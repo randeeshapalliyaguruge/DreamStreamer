@@ -51,7 +51,7 @@ import {
 } from '@heroicons/vue/24/outline'
 
 const navigation = [
-  { name: 'Album', href: '/admin/album', icon: FolderIcon, current: true },
+  { name: 'Artist', href: '/admin/artist', icon: PaintBrushIcon, current: true },
   // {
   //   name: 'Teams',
   //   icon: UsersIcon,
@@ -62,9 +62,9 @@ const navigation = [
   //     { name: 'Customer Success', href: '#' },
   //   ],
   // },
-  { name: 'Artist', href: '/admin/artist', icon: PaintBrushIcon, current: false },
-  { name: 'Tracks', href: '/admin/track', icon: MusicalNoteIcon, current: false },
   { name: 'Genre ', href: '/admin/genre', icon: ChartPieIcon, current: false },
+  { name: 'Album', href: '/admin/album', icon: FolderIcon, current: false },
+  { name: 'Tracks', href: '/admin/track', icon: MusicalNoteIcon, current: false },
   { name: 'Users', href: '/admin/users', icon: UsersIcon, current: false },
 ]
 </script>
