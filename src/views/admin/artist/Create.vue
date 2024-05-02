@@ -82,57 +82,21 @@
                             </div>
                           </div>
                         </div>
-
+                        
                         <div class="sm:col-span-8">
                           <label
                             for="avatar"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
+                            class="block text-sm font-medium leading-6 text-gray-900">
                             Avatar
                           </label>
                           <div class="mt-2">
                             <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
-                                type="text"
+                                type="file"
                                 name="avatar"
                                 id="avatar"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="artist.avatar"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-8">
-                          <label for="tracks" class="block text-sm font-medium leading-6 text-gray-900">
-                            Tracks
-                          </label>
-                          <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="track in artist.tracks" :key="track.id">
-                                  <input type="checkbox" v-model="track.status" />
-                                  {{ track.name }}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-8">
-                          <label for="albums" class="block text-sm font-medium leading-6 text-gray-900">
-                            Albums
-                          </label>
-                          <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="album in artist.albums" :key="album.id">
-                                  <input type="checkbox" v-model="album.status" />
-                                  {{ album.name }}
-                                </li>
-                              </ul>
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
                             </div>
                           </div>
                         </div>
@@ -148,8 +112,7 @@
                                 name="sort_order"
                                 id="sort_order"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="artist.sort_order"
-                              />
+                                v-model="artist.sort_order"/>
                             </div>
                           </div>
                         </div>
@@ -207,8 +170,6 @@ const artist = ref({
   name: '',
   bio: '',
   avatar: '',
-  tracks: [], // relationship for tracks, when creating a artist, we don't have any tracks
-  albums: [], // relationship for albums, when creating a artist, we don't have any albums
   sort_order: 0,
   status: null
 })
