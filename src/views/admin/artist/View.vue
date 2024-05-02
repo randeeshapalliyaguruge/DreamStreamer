@@ -96,14 +96,14 @@ const artist =
       { id: 3, name: 'Track 3', duration: '5:45',},
       { id: 4, name: 'Track 4', duration: '6:45',},
       { id: 5, name: 'Track 5', duration: '7:45',},
-    ],
+    ],  // in the relationship with tracks, should display track details, related to artist
     albums: [
       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
       { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
       { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
       { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
       { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
-    ],
+    ],  // in the relationship with albums, should display album details, related to artist
     sort_order: 1,
     status: true,
   }
