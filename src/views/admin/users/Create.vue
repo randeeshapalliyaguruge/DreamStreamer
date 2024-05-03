@@ -32,7 +32,7 @@
                   </RouterLink>
                   <div class="mt-3 sm:mt-5">
                     <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
-                      {{ user.id }}. {{ user.first_name }} {{ user.last_name }}
+                      {{ user.first_name }} {{ user.last_name }}
                     </DialogTitle>
                     <div class="mt-2">
                       <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
