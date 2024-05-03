@@ -19,6 +19,18 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/albums',
+      name: 'albums',
+      component: () => import('../views/album/AlbumView.vue'),
+      children: [
+        {
+          path: ':id',
+          name: 'viewAlbums',
+          component: () => import('../views/album/AlbumDetailView.vue')
+        }
+      ]
+    },
+    {
       path: '/admin',
       name: 'admin',
       component: AdminDashboard
