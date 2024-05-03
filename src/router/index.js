@@ -21,12 +21,12 @@ const router = createRouter({
     {
       path: '/albums',
       name: 'albums',
-      component: () => import('../views/album/AlbumView.vue'),
+      component: () => import('../views/album/AlbumIndex.vue'),
       children: [
         {
           path: ':id',
           name: 'viewAlbums',
-          component: () => import('../views/album/AlbumDetailView.vue')
+          component: () => import('../views/album/AlbumView.vue')
         }
       ]
     },
