@@ -108,75 +108,85 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import AdminDashboard from '../AdminDashboard.vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeftIcon } from '@heroicons/vue/20/solid';
 
-const albums = [
-  {
-    id: 1,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
-  },
-  {
-    id: 2,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: false // Published etc.
-  },
-  {
-    id: 3,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
-  },
-  {
-    id: 4,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
-  }
-]
+const albums = ref([]);
+
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/albums')
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    albums.value = response.body
+  })
+
+// const albums = [
+//   {
+//     id: 1,
+//     name: 'Paata',
+//     number_of_tracks: 8,
+//     year: 2020,
+//     album_art: 'IMAGE_URL',
+//     artist: {
+//       id: 1,
+//       name: 'Costa',
+//       avatar: 'IMAGE_URL'
+//     },
+//     studio: 'COSTA Songs',
+//     genre: 'RAP',
+//     sort_order: 0,
+//     status: true // Published etc.
+//   },
+//   {
+//     id: 2,
+//     name: 'Paata',
+//     number_of_tracks: 8,
+//     year: 2020,
+//     album_art: 'IMAGE_URL',
+//     artist: {
+//       id: 1,
+//       name: 'Costa',
+//       avatar: 'IMAGE_URL'
+//     },
+//     studio: 'COSTA Songs',
+//     genre: 'RAP',
+//     sort_order: 0,
+//     status: false // Published etc.
+//   },
+//   {
+//     id: 3,
+//     name: 'Paata',
+//     number_of_tracks: 8,
+//     year: 2020,
+//     album_art: 'IMAGE_URL',
+//     artist: {
+//       id: 1,
+//       name: 'Costa',
+//       avatar: 'IMAGE_URL'
+//     },
+//     studio: 'COSTA Songs',
+//     genre: 'RAP',
+//     sort_order: 0,
+//     status: true // Published etc.
+//   },
+//   {
+//     id: 4,
+//     name: 'Paata',
+//     number_of_tracks: 8,
+//     year: 2020,
+//     album_art: 'IMAGE_URL',
+//     artist: {
+//       id: 1,
+//       name: 'Costa',
+//       avatar: 'IMAGE_URL'
+//     },
+//     studio: 'COSTA Songs',
+//     genre: 'RAP',
+//     sort_order: 0,
+//     status: true // Published etc.
+//   }
+// ]
 </script>
 <style></style>
