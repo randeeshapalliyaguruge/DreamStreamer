@@ -36,9 +36,9 @@
                   <div class="mt-2">
                     <div class="text-sm text-gray-500">
                       <ul>
-                        <li>Number of tracks: {{ artist.name }}</li>
+                        <li>Avatar: <img :src="artist.avatar" alt="Artist image"></li>
+                        <li>Name: {{ artist.name }}</li>
                         <li>Bio: {{ artist.bio }}</li>
-                        <li>Avatar: {{ artist.avatar }}</li>
                         <li>Tracks: 
                           <ul class="ml-3">
                             <li v-for="track in artist.tracks" :key="track.id">
@@ -81,31 +81,41 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/20/solid';
+import { useRoute, RouterLink } from 'vue-router'
 
 const open = ref(true)
+const artist = ref([]);
+const route = useRoute()
 
-const artist = 
-  {
-    id: 1,
-    name: 'Leslie Alexander',
-    bio: 'Senior Designer',
-    avatar:'IMAGE_URL',
-    tracks: [
-      { id: 1, name: 'Track 1', duration: '3:45',},
-      { id: 2, name: 'Track 2', duration: '4:45',},
-      { id: 3, name: 'Track 3', duration: '5:45',},
-      { id: 4, name: 'Track 4', duration: '6:45',},
-      { id: 5, name: 'Track 5', duration: '7:45',},
-    ],  // in the relationship with tracks, should display track details, related to artist
-    albums: [
-      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
-      { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
-      { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
-      { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
-      { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
-    ],  // in the relationship with albums, should display album details, related to artist
-    sort_order: 1,
-    status: true,
-  }
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/artists?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    artist.value = response.body[0]
+  })
+
+// const artist = 
+//   {
+//     id: 1,
+//     name: 'Leslie Alexander',
+//     bio: 'Senior Designer',
+//     avatar:'IMAGE_URL',
+//     tracks: [
+//       { id: 1, name: 'Track 1', duration: '3:45',},
+//       { id: 2, name: 'Track 2', duration: '4:45',},
+//       { id: 3, name: 'Track 3', duration: '5:45',},
+//       { id: 4, name: 'Track 4', duration: '6:45',},
+//       { id: 5, name: 'Track 5', duration: '7:45',},
+//     ],  // in the relationship with tracks, should display track details, related to artist
+//     albums: [
+//       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+//       { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
+//       { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
+//       { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
+//       { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
+//     ],  // in the relationship with albums, should display album details, related to artist
+//     sort_order: 1,
+//     status: true,
+//   }
 
 </script>
