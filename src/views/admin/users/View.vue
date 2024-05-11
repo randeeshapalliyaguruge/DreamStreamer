@@ -73,20 +73,29 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/20/solid';
+import { useRoute, RouterLink } from 'vue-router'
 
+const route = useRoute()
 const open = ref(true)
+const user = ref([]);
 
-const user = {
-    id: 1,
-    avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    first_name: 'Billie',
-    last_name: 'Jean',
-    email: 'test@test.com',
-    password: 'password', // should be hashed
-    age: 20,
-    country: 'USA',
-    subscription: 'free',
-    phone: '+94771234567',
-    status: true,
-  }
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/users?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    user.value = response.body[0]
+  })
+// const user = {
+//     id: 1,
+//     avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     first_name: 'Billie',
+//     last_name: 'Jean',
+//     email: 'test@test.com',
+//     password: 'password', // should be hashed
+//     age: 20,
+//     country: 'USA',
+//     subscription: 'free',
+//     phone: '+94771234567',
+//     status: true,
+//   }
 </script>
