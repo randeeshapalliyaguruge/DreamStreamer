@@ -39,7 +39,7 @@
                         <li>Number of tracks: {{ album.number_of_tracks }}</li>
                         <li>Year: {{ album.year }}</li>
                         <li>Album Art: {{ album.album_art }}</li>
-                        <li>Artist: {{ album.artist.name }}</li>
+                        <li>Artist: {{ album.artist ? album.artist.name : 'Loading...' }}</li>
                         <li>Studio: {{ album.studio }}</li>
                         <li>Genre: {{ album.genre }}</li>
                         <li>Sort order: {{ album.sort_order }}</li>
@@ -70,23 +70,36 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/20/solid';
+import { useRoute, RouterLink } from 'vue-router'
+
+const route = useRoute()
+
 
 const open = ref(true)
+const album = ref([]);
 
-const album = {
-  id: 1,
-  name: 'Paata',
-  number_of_tracks: 8,
-  year: 2020,
-  album_art: 'IMAGE_URL',
-  artist: {
-    id: 1,
-    name: 'Costa',
-    avatar: 'IMAGE_URL'
-  },
-  studio: 'COSTA Songs',
-  genre: 'RAP',
-  sort_order: 0,
-  status: true // Published etc.
-}
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/albums?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    album.value = response.body[0]
+  })
+
+// const album = {
+//   id: 1,
+//   name: 'Paata',
+//   number_of_tracks: 8,
+//   year: 2020,
+//   album_art: 'IMAGE_URL',
+//   artist: {
+//     id: 1,
+//     name: 'Costa',
+//     avatar: 'IMAGE_URL'
+//   },
+//   studio: 'COSTA Songs',
+//   genre: 'RAP',
+//   sort_order: 0,
+//   status: true // Published etc.
+// }
+
 </script>
