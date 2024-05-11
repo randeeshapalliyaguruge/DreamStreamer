@@ -39,9 +39,9 @@
                         <li>Avatar: <img :src="track.avatar" alt="Track image"></li>
                         <li>Id: {{track.id}}</li>
                         <li>Duration: {{ track.duration }}</li>
-                        <li>Artist: {{ track.artist.name }}</li>
-                        <li>Album: {{ track.album.map((album) => album.name).join(', ') }}</li>
-                        <li>Genre: {{ track.genre.name }}</li>
+                        <li>Artist: {{ track.artist ? track.artist.name : 'Loading...' }}</li>
+                        <li>Album: {{ track.album ? track.album.map((album) => album.name).join(', ') : 'Loading...' }}</li>
+                        <li>Genre: {{ track.genre ? track.genre.name : 'Loading...' }}</li>
                         <li>File path: {{ track.file_path }}</li>
                         <li>Status: {{ track.status }}</li>
                         <li>Sort order: {{ track.sort_order }}</li>
@@ -71,23 +71,32 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/20/solid';
+import { useRoute, RouterLink } from 'vue-router'
 
+const route = useRoute()
 const open = ref(true)
+const track = ref([]);
 
-const track = {
-    id: 1,
-    name: 'Beat It',
-    file_path: 'file-path.io',
-    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    duration: 185,
-    artist: { id: 1, name: 'Michael Jackson' },
-    album: [
-      { id: 1, name: 'Thriller' },
-      { id: 2, name: 'Bad' }
-    ],
-    genre: 
-      { id: 1, name: 'Rock' },
-    sort_order: 1,
-    status: true,
-  }
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/tracks?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    track.value = response.body[0]
+  })
+// const track = {
+//     id: 1,
+//     name: 'Beat It',
+//     file_path: 'file-path.io',
+//     avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     duration: 185,
+//     artist: { id: 1, name: 'Michael Jackson' },
+//     album: [
+//       { id: 1, name: 'Thriller' },
+//       { id: 2, name: 'Bad' }
+//     ],
+//     genre: 
+//       { id: 1, name: 'Rock' },
+//     sort_order: 1,
+//     status: true,
+//   }
 </script>
