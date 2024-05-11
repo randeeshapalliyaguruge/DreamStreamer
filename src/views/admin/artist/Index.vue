@@ -94,93 +94,102 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import AdminDashboard from '../AdminDashboard.vue';
 import { RouterLink } from 'vue-router';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { EllipsisVerticalIcon, ArrowLeftIcon } from '@heroicons/vue/20/solid'
 
-const artists = [
-  {
-    id: 1,
-    name: 'Leslie Alexander',
-    bio: 'Senior Designer',
-    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    tracks: [
-      { id: 1, name: 'Track 1', duration: '3:45',},
-      { id: 2, name: 'Track 2', duration: '4:45',},
-      { id: 3, name: 'Track 3', duration: '5:45',},
-      { id: 4, name: 'Track 4', duration: '6:45',},
-      { id: 5, name: 'Track 5', duration: '7:45',},
-    ],
-    albums: [
-      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
-      { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
-      { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
-      { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
-      { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
-    ],
-    sort_order: 1,
-    status: true,
-  },
-  {
-    id: 2,
-    name: 'Michael Foster',
-    bio: 'Senior Designer',
-    avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    tracks: [
-      { id: 1, name: 'Track 1', duration: '3:45',},
-      { id: 2, name: 'Track 2', duration: '4:45',},
-      { id: 3, name: 'Track 3', duration: '5:45',},
-      { id: 4, name: 'Track 4', duration: '6:45',},
-      { id: 5, name: 'Track 5', duration: '7:45',},
-    ],
-    albums: [
-      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
-      { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
-      { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
-      { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
-      { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
-    ],
-    sort_order: 2,
-    status: null,
-  },
-  {
-    id: 3,
-    name: 'Dries Vincent',
-    bio: 'Senior Designer',
-    avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    tracks: [
-      { id: 1, name: 'Track 1', duration: '3:45',},
-      { id: 2, name: 'Track 2', duration: '4:45',},
-      { id: 3, name: 'Track 3', duration: '5:45',},
-      { id: 4, name: 'Track 4', duration: '6:45',},
-      { id: 5, name: 'Track 5', duration: '7:45',},
-    ],
-    albums: [
-      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
-    ],
-    sort_order: 3,
-    status: true,
-  },
-  {
-    id: 4,
-    name: 'Lindsay Walton',
-    bio: 'Senior Designer',
-    avatar:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    tracks: [
-      { id: 1, name: 'Track 1', duration: '3:45',},
-      { id: 2, name: 'Track 2', duration: '4:45',},
-      { id: 3, name: 'Track 3', duration: '5:45',},
-      { id: 4, name: 'Track 4', duration: '6:45',},
-      { id: 5, name: 'Track 5', duration: '7:45',},
-    ],
-    albums: [
-      { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
-    ],
-    sort_order: 4,
-    status: true,
-  },
-]
+const artists = ref([]);
+
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/artists')
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    artists.value = response.body
+  })
+
+// const artists = [
+//   {
+//     id: 1,
+//     name: 'Leslie Alexander',
+//     bio: 'Senior Designer',
+//     avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     tracks: [
+//       { id: 1, name: 'Track 1', duration: '3:45',},
+//       { id: 2, name: 'Track 2', duration: '4:45',},
+//       { id: 3, name: 'Track 3', duration: '5:45',},
+//       { id: 4, name: 'Track 4', duration: '6:45',},
+//       { id: 5, name: 'Track 5', duration: '7:45',},
+//     ],
+//     albums: [
+//       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+//       { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
+//       { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
+//       { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
+//       { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
+//     ],
+//     sort_order: 1,
+//     status: true,
+//   },
+//   {
+//     id: 2,
+//     name: 'Michael Foster',
+//     bio: 'Senior Designer',
+//     avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     tracks: [
+//       { id: 1, name: 'Track 1', duration: '3:45',},
+//       { id: 2, name: 'Track 2', duration: '4:45',},
+//       { id: 3, name: 'Track 3', duration: '5:45',},
+//       { id: 4, name: 'Track 4', duration: '6:45',},
+//       { id: 5, name: 'Track 5', duration: '7:45',},
+//     ],
+//     albums: [
+//       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+//       { id: 2, name: 'Album 2', year: 2021, genre: 'Pop', status: true, },
+//       { id: 3, name: 'Album 3', year: 2021, genre: 'Pop', status: true, },
+//       { id: 4, name: 'Album 4', year: 2021, genre: 'Pop', status: true, },
+//       { id: 5, name: 'Album 5', year: 2021, genre: 'Pop', status: true, },
+//     ],
+//     sort_order: 2,
+//     status: null,
+//   },
+//   {
+//     id: 3,
+//     name: 'Dries Vincent',
+//     bio: 'Senior Designer',
+//     avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     tracks: [
+//       { id: 1, name: 'Track 1', duration: '3:45',},
+//       { id: 2, name: 'Track 2', duration: '4:45',},
+//       { id: 3, name: 'Track 3', duration: '5:45',},
+//       { id: 4, name: 'Track 4', duration: '6:45',},
+//       { id: 5, name: 'Track 5', duration: '7:45',},
+//     ],
+//     albums: [
+//       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+//     ],
+//     sort_order: 3,
+//     status: true,
+//   },
+//   {
+//     id: 4,
+//     name: 'Lindsay Walton',
+//     bio: 'Senior Designer',
+//     avatar:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     tracks: [
+//       { id: 1, name: 'Track 1', duration: '3:45',},
+//       { id: 2, name: 'Track 2', duration: '4:45',},
+//       { id: 3, name: 'Track 3', duration: '5:45',},
+//       { id: 4, name: 'Track 4', duration: '6:45',},
+//       { id: 5, name: 'Track 5', duration: '7:45',},
+//     ],
+//     albums: [
+//       { id: 1, name: 'Album 1', year: 2021, genre: 'Pop', status: true, },
+//     ],
+//     sort_order: 4,
+//     status: true,
+//   },
+// ]
 </script>
 
-<style></style>
