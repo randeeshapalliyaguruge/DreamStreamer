@@ -67,15 +67,25 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/20/solid';
+import { useRoute, RouterLink } from 'vue-router'
 
+const route = useRoute()
 const open = ref(true)
+const genre = ref([]);
 
-const genre = {
-    id: 1,
-    name: 'Pop',
-    description: 'Pop is a genre of popular music that originated in its modern form during the mid-1950s in the USA and the UK.',
-    status: true,
-    sort_order: 1,
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  }
+fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/genres?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    genre.value = response.body[0]
+  })
+
+// const genre = {
+//     id: 1,
+//     name: 'Pop',
+//     description: 'Pop is a genre of popular music that originated in its modern form during the mid-1950s in the USA and the UK.',
+//     status: true,
+//     sort_order: 1,
+//     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//   }
 </script>
