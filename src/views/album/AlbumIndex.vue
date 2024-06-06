@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="flex flex-1">
     <div>
       <TemplateView/>
@@ -92,4 +92,4 @@ const people = [
   }
   // More people...
 ]
-</script>
+</script> -->
