@@ -84,7 +84,7 @@ const mobileMenuOpen = ref(false)
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+      <!-- <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Home</RouterLink>
         <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900"
           >About</RouterLink
@@ -153,7 +153,7 @@ const mobileMenuOpen = ref(false)
 
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
-      </PopoverGroup>
+      </PopoverGroup> -->
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
           >Log in <span aria-hidden="true">&rarr;</span></a

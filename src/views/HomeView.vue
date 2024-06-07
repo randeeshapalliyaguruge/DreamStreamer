@@ -4,14 +4,34 @@
       <TemplateView/>
     </div>
     <main class="flex-1">
-      <div class="flex bg-gray-100 py-24 sm:py-32">
+      <div class="flex bg-gray-100 pb-24 pt-5 sm:pb-32">
         <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div class="mx-auto max-w-2xl">
             <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">Albums</h2>
             <p class="mt-4 text-lg leading-8 text-gray-600">
-              This is a selection of albums that we have worked on. At the core of our design philosophy is a focus on the user. We believe that whatever we create should be easy to use and look beautiful. We hope you enjoy these albums as much as we enjoyed creating them.
+              This is the Albums page. Here you can view all the albums in DreamSreamer.
             </p>
           </div>
+          
+          <div class="mt-10">
+            <label for="year" class="block text-sm font-medium text-gray-700">Select Year</label>
+            <select 
+              v-model="year"
+              id="year" name="year" class="mt-1 block
+              w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+              <option value="" selected>Default</option>
+              <option value="2018">2018</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+            </select>
+
+            <button type="button" @click="getAlbums">
+              FILTER
+            </button>
+
+          </div>
+
+          
           <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
             <li v-for="album in albums" :key="album.id" class="rounded-2xl bg-gray-200 px-8 py-10">
               <RouterLink to="/artist">
@@ -48,19 +68,43 @@
 <router-view />
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script type="module">
+
+import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import TemplateView from './TemplateView.vue';
 
-const albums = ref([]);
+export default {
 
-fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/albums')
-  .then((response) => response.json())
-  .then((response) => {
-    console.log(response)
-    albums.value = response.body
-  })
+  components: {
+    TemplateView
+  },
 
+  setup() {
+
+    const albums = ref([]);
+    const year = ref("");
+    
+    onMounted(() => {
+      getAlbums()
+    })
+
+    function getAlbums() {
+      
+      fetch('https://h3ofpd5s5b.execute-api.ap-southeast-1.amazonaws.com/dev/albums?year=' + year.value)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        albums.value = response.body
+      })
+    }
+
+    return {
+      getAlbums,
+      year,
+      albums
+    }
+  }
+}
 
 </script>

@@ -5,7 +5,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <aside class="flex flex-col w-72 bg-zinc-950 text-zinc-100 p-2 gap-2 h-full">
+  <aside class="flex flex-col w-72 bg-gradient-to-t from-zinc-950 text-zinc-100 p-2 gap-2 h-full">
       <nav class="p-4 bg-zinc-900/80 space-y-5 rounded-md">
         <RouterLink to="/artists" class="flex items-center gap-3 text-sm font-semibold">
           <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"></path></svg>
@@ -24,7 +24,7 @@ const count = ref(0)
           Tracks
         </RouterLink>
       </nav>
-      <div class="p-4 bg-zinc-900/80 text-zinc-100 space-y-5 rounded-md">
+      <!-- <div class="p-4 bg-zinc-900/80 text-zinc-100 space-y-5 rounded-md">
         <div class="flex flex-row items-center justify-between">
           <div class="flex flex-row items-center gap-2">
             <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 24 24"><path d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"></path></svg>
@@ -39,6 +39,6 @@ const count = ref(0)
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </aside>
 </template>
