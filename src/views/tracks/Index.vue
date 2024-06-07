@@ -17,7 +17,7 @@
             <li v-for="track in tracks" :key="track.id" class="rounded-2xl bg-gray-200 px-8 py-10">
               <RouterLink :to="`/tracks/${track.id}`">
                 
-              <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" :src="track.avatar" alt="genre image" />
+              <img class="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" :src="track.avatar" alt="track image" />
               <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-black">{{ track.name }}</h3>
               <p class="text-sm leading-6 text-gray-600">{{ track.artist.name }}</p>
               </RouterLink>

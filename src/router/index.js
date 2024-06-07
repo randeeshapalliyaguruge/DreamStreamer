@@ -66,7 +66,7 @@ const router = createRouter({
       children: [
         {
           path: ':id',
-          name: 'viewGenres',
+          name: 'viewTracks',
           component: () => import('../views/tracks/View.vue')
         },
       ]
