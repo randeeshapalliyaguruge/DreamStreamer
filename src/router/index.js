@@ -8,7 +8,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      children: [
+        {
+          path: ':id',
+          name: 'viewAlbums',
+          component: () => import('../views/album/View.vue')
+        }
+      ]
     },
     {
       path: '/about',
@@ -18,16 +25,28 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
+    // {
+    //   path: '/albums',
+    //   name: 'albums',
+    //   component: () => import('../views/album/AlbumIndex.vue'),
+    //   children: [
+    //     {
+    //       path: ':id',
+    //       name: 'viewAlbums',
+    //       component: () => import('../views/album/AlbumView.vue')
+    //     }
+    //   ]
+    // },
     {
-      path: '/albums',
-      name: 'albums',
-      component: () => import('../views/album/AlbumIndex.vue'),
+      path: '/artists',
+      name: 'artists',
+      component: () => import('../views/artists/Index.vue'),
       children: [
         {
           path: ':id',
-          name: 'viewAlbums',
-          component: () => import('../views/album/AlbumView.vue')
-        }
+          name: 'viewArtists',
+          component: () => import('../views/artists/View.vue')
+        },
       ]
     },
     {
