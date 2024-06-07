@@ -56,6 +56,24 @@ const router = createRouter({
       // component: () => import('../views/admin/AdminDashboard.vue')
     },
     {
+      path: '/genres',
+      name: 'genres',
+      component: () => import('../views/genres/Index.vue'),
+      children: [
+        {
+          path: ':id',
+          name: 'viewGenres',
+          component: () => import('../views/genres/View.vue')
+        },
+      ]
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: AdminDashboard
+      // component: () => import('../views/admin/AdminDashboard.vue')
+    },
+    {
       path: '/admin/users',
       name: 'users',
       component: () => import('../views/admin/users/Index.vue'),
