@@ -48,12 +48,6 @@ const router = createRouter({
       ]
     },
     {
-      path: '/admin',
-      name: 'admin',
-      component: AdminDashboard
-      // component: () => import('../views/admin/AdminDashboard.vue')
-    },
-    {
       path: '/genres',
       name: 'genres',
       component: () => import('../views/genres/Index.vue'),
@@ -62,6 +56,18 @@ const router = createRouter({
           path: ':id',
           name: 'viewGenres',
           component: () => import('../views/genres/View.vue')
+        },
+      ]
+    },
+    {
+      path: '/tracks',
+      name: 'tracks',
+      component: () => import('../views/tracks/Index.vue'),
+      children: [
+        {
+          path: ':id',
+          name: 'viewGenres',
+          component: () => import('../views/tracks/View.vue')
         },
       ]
     },
