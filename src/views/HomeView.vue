@@ -20,9 +20,9 @@
               id="year" name="year" class="mt-1 block
               w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
               <option value="" selected>Default</option>
-              <option value="2018">2018</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
+              <option value="2005">2005</option>
+              <option value="2012">2012</option>
+              <option value="2016">2016</option>
             </select>
 
             <button type="button" @click="getAlbums">

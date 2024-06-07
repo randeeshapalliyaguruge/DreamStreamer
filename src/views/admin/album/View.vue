@@ -38,7 +38,7 @@
                       <ul>
                         <li>Number of tracks: {{ album.number_of_tracks }}</li>
                         <li>Year: {{ album.year }}</li>
-                        <li>Album Art: {{ album.album_art }}</li>
+                        <li>Album Art: <img :src="album.album_art" alt="Album image"></li>
                         <li>Artist: {{ album.artist ? album.artist.name : 'Loading...' }}</li>
                         <li>Studio: {{ album.studio }}</li>
                         <li>Genre: {{ album.genre }}</li>
