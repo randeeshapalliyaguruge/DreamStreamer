@@ -32,40 +32,41 @@
         </div>
       </div>
     </main>
-    <footer v-if="currentTrack" class="fixed bottom-0 left-0 right-0 flex items-center justify-between border-t border-zinc-700 bg-zinc-800 px-6 py-4">
+    <footer v-if="currentTrack" class="fixed bottom-0 left-0 right-0 flex items-center justify-between border-t border-zinc-400  bg-gradient-to-t from-green-600 bg-zinc-400  px-6 py-4">
           <div class="flex items-center gap-3">
-            <img class="w-20 h-20 rounded" :src="currentTrack.avatar" alt="Album Art" />
+            <img class="w-20 h-20 rounded-full" :src="currentTrack.avatar" alt="Album Art" />
             <div class="flex flex-col">
-              <span class="font-normal text-lg text-white">{{ currentTrack.name }}</span>
-              <span class="text-xs text-zinc-400">{{ currentTrack.artist.name }}</span>
+              <span class="font-bold text-xl text-white">{{ currentTrack.name }}</span>
+              <span class="text-xs text-white">{{ currentTrack.artist.name }}</span>
             </div>
           </div>
           <div class="flex flex-col items-center gap-2">
             <div class="flex items-center gap-6">
-              <button class="text-zinc-400" @click="prevTrack">
+              <button class="text-gray-200 hover:text-white" @click="prevTrack">
                 <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"></path></svg>
               </button>
-              <button class="text-zinc-400" @click="togglePlay(currentTrack)">
+              <button @click="togglePlay(currentTrack)" class="flex h-10 w-10 items-center justify-center rounded-full bg-black hover:bg-green-500 text-white transition-opacity group-hover:visible">
                 <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16">
                   <path v-if="isPlaying" d="M2 2h4v12H2zm8 0h4v12h-4z" />
                   <path v-else d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z" />
                 </svg>
               </button>
-              <button class="text-zinc-400" @click="nextTrack">
+
+              <button class="text-gray-200 hover:text-white" @click="nextTrack">
                 <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"></path></svg>
               </button>
             </div>
             <div class="flex items-center gap-2">
-              <span class="text-xs text-zinc-400">{{ formatTime(currentTime) }}</span>
+              <span class="text-xs text-white">{{ formatTime(currentTime) }}</span>
               <input type="range" v-model="progress" @input="seek" min="0" :max="duration" step="0.1" class="w-96" />
-              <span class="text-xs text-zinc-400">{{ formatTime(duration) }}</span>
+              <span class="text-xs text-white">{{ formatTime(duration) }}</span>
             </div>
           </div>
           <div class="flex items-center gap-4">
-            <a href="/albums" class="text-zinc-400">
+            <a href="/albums" class="text-zinc-200">
               <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M11.196 8 6 5v6l5.196-3z"></path><path d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z"></path></svg>
             </a>
-            <a href="/" class="text-zinc-400">
+            <a href="/" class="text-zinc-200">
               <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 2.5 2.5v1H1V3.5z"></path></svg>
             </a>
           </div>

@@ -5,8 +5,8 @@ const count = ref(0)
 </script>
 
 <template>
-  <aside class="flex flex-col w-72 bg-gradient-to-t from-zinc-950 text-zinc-100 p-2 gap-2 h-full">
-      <nav class="p-4 bg-zinc-900/80 space-y-5 rounded-md">
+  <aside class="flex flex-col w-72  bg-gradient-to-t from-zinc-950 text-zinc-100 p-2 gap-2 h-full">
+      <nav class="p-4 bg-zinc-900/80 space-y-5 rounded-md text-white">
         <RouterLink to="/artists" class="flex items-center gap-3 text-sm font-semibold">
           <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"></path></svg>
           Artists

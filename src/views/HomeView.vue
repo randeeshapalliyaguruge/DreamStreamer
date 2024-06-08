@@ -13,19 +13,19 @@
             </p>
           </div>
           
-          <div class="mt-10">
-            <label for="year" class="block text-sm font-medium text-gray-700">Select Year</label>
+          <div class="flex gap-2 items-end mt-5">
+            <!-- <label for="year" class="block text-lg font-medium text-gray-700">Select Year</label> -->
             <select 
               v-model="year"
               id="year" name="year" class="mt-1 block
               w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-              <option value="" selected>Default</option>
+              <option value="" selected>Select Year</option>
               <option value="2005">2005</option>
               <option value="2012">2012</option>
               <option value="2016">2016</option>
             </select>
 
-            <button type="button" @click="getAlbums">
+            <button type="button" @click="getAlbums" class="mt-2">
               FILTER
             </button>
 
