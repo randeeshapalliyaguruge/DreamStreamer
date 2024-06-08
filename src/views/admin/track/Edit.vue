@@ -232,7 +232,7 @@
                   </RouterLink>
                   <button
                     type="submit"
-                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2">
+                    class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2">
                     Save
                   </button>
                 </div>
@@ -263,7 +263,9 @@ const track = ref({
     duration: 185,
     artist: [
       { id: 1, name: 'Michael Jackson' },
-      { id: 2, name: 'Whitney Houston' }],
+      { id: 2, name: 'Whitney Houston' },
+      { id: 3, name: 'Ed Sheeran' }
+    ],
     album: [
       { id: 1, name: 'Thriller' },
       { id: 2, name: 'Bad' }

@@ -18,7 +18,7 @@
               <RouterLink
                 to="/admin/track/create"
                 type="button"
-                class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                class="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Add Tracks
               </RouterLink>
             </div>
@@ -46,7 +46,7 @@
                   <th scope="col" class="px-12 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                     Status
                   </th>
-                  <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
+                  <th scope="col" class="px-6 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                     File Path
                   </th>
                   <th scope="col" class="relative px-12 py-3.5">
@@ -97,7 +97,7 @@
                       Inactive
                     </div>
                   </td>
-                  <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                  <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                     <div>
                       <h2 class="font-medium text-gray-800">{{ track.file_path }}</h2>
                     </div>
