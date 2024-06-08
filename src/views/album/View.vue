@@ -29,7 +29,7 @@
                 <RouterLink to="/">
                     <XMarkIcon class="h-6 w-6 text-gray-400 absolute top-4 right-4 cursor-pointer hover:bg-red-500 hover:text-white hover:rounded-full" />
                   </RouterLink>
-                <div class="mt-3 sm:mt-5">
+                <div class="mt-3 sm:mt-5" v-if="album">
                   <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
                     {{ album.id }}. {{ album.name }}
                   </DialogTitle>

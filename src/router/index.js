@@ -23,18 +23,6 @@ const router = createRouter({
       name: 'login',
       component: () => import('../views/LoginView.vue')
     },
-    // {
-    //   path: '/albums',
-    //   name: 'albums',
-    //   component: () => import('../views/album/AlbumIndex.vue'),
-    //   children: [
-    //     {
-    //       path: ':id',
-    //       name: 'viewAlbums',
-    //       component: () => import('../views/album/AlbumView.vue')
-    //     }
-    //   ]
-    // },
     {
       path: '/artists',
       name: 'artists',
